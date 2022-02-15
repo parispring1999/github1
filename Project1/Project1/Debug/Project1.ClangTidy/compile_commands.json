@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "C:\\Users\\Administrator\\Desktop\\Project1\\Project1",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W3 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D WIN32 \/D _DEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/permissive- \/Fo\"Debug\\\\\" \/Gd \/TC   \"C:\\Users\\Administrator\\Desktop\\Project1\\Project1\\源.c\"",
+    "file": "C:\\Users\\Administrator\\Desktop\\Project1\\Project1\\源.c"
+  }
+]
