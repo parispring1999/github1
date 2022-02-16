@@ -1,6 +1,8 @@
 package com.window;
 import javax.swing.*;
 import java.awt.*;
+
+import com.event.RegEvent;
 import com.stytle.Fronts;
 public class LoginStart extends JFrame {
     JLabel bgimg;
@@ -16,6 +18,7 @@ public class LoginStart extends JFrame {
     javax.swing.JPanel jpanel_1;//图片
     javax.swing.JPanel jpanel_2;//标题
     javax.swing.JPanel jpanel_3;//账密编辑框密码框
+    RegEvent regevent;//监听
 
     public LoginStart() {
         init();
@@ -94,5 +97,9 @@ public class LoginStart extends JFrame {
         jpanel_1.add(jpanel_3);
         jpanel_1.add(bgimg);
         this.add(jpanel_1);
+    }
+    //注册监听
+    void allEvvent(){
+
     }
 }

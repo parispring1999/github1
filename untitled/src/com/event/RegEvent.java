@@ -4,6 +4,7 @@ import java.awt.event.MouseListener;
 public class RegEvent implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getButton()==MouseEvent.BUTTON1)
         System.out.print("点击");
     }
 
