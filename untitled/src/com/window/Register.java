@@ -8,14 +8,22 @@ import java.awt.*;
 import static java.awt.FlowLayout.CENTER;
 
 public class Register extends JFrame {
-    final int WIDTH=480;
-    final int HEIGHT=800;
+    final int WIDTH=420;
+    final int HEIGHT=300;
     FlowLayout flowlayout;
     JPanel jpanel_1;
     JPanel jpanel_2;
     JPanel jpanel_3;
     JLabel bgimg;
     JLabel title;
+
+    JLabel name;
+    JTextField nametext;
+    JLabel account;
+    JTextField accounttext;
+    JLabel password;
+    JPasswordField passwordtext;
+    JButton reg;
     //构造器
     public Register(){
         init();
@@ -54,15 +62,35 @@ public class Register extends JFrame {
         jpanel_2=new JPanel();
         jpanel_2.setBounds(0,30,WIDTH,70);
         jpanel_2.setOpaque(false);
+        jpanel_2.setLayout(flowlayout);
         //盘子3
         jpanel_3=new JPanel();
-        jpanel_3.setBounds(0,30,WIDTH,500);
+        jpanel_3.setBounds(70,80,260,200);
         jpanel_3.setOpaque(false);
+        jpanel_3.setLayout(flowlayout);
+        //第一行数据
+        name=new JLabel("姓名");
+        nametext=new JTextField(20);
+        //第二行
+        account=new JLabel("账号");
+        accounttext=new JTextField(20);
+        //第三行
+        password=new JLabel("密码");
+        passwordtext=new JPasswordField(20);
+        //注册
+        reg=new JButton("注册");
         //添加
+        jpanel_3.add(name);
+        jpanel_3.add(nametext);
+        jpanel_3.add(account);
+        jpanel_3.add(accounttext);
+        jpanel_3.add(password);
+        jpanel_3.add(passwordtext);
+        jpanel_3.add(reg);
         jpanel_2.add(title);
+        jpanel_1.add(jpanel_3);
         jpanel_1.add(jpanel_2);
         jpanel_1.add(bgimg);
         this.add(jpanel_1);
-
     }
 }
