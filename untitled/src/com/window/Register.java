@@ -40,5 +40,6 @@ public class Register extends JFrame {
         ImageIcon img=new ImageIcon("src/img/2.jpeg");
         bgimg=new JLabel(img);
         bgimg.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+
     }
 }
