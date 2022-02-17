@@ -11,7 +11,7 @@ public class Register extends JFrame {
     FlowLayout flowlayout;
     JPanel jpanel_1;
     JLabel bgimg;
-
+    JLabel title;
     //构造器
     public Register(){
         init();
@@ -40,6 +40,8 @@ public class Register extends JFrame {
         ImageIcon img=new ImageIcon("src/img/2.jpeg");
         bgimg=new JLabel(img);
         bgimg.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+        //标题
+        title=new JLabel("账号注册");
 
     }
 }
