@@ -37,7 +37,7 @@ public class Register extends JFrame {
         jpanel_1.setBounds(0,0,width,height);
         jpanel_1.setLayout(flowlayout);
         //背景
-        ImageIcon img=new ImageIcon("src/img/2.jpg");
+        ImageIcon img=new ImageIcon("src/img/2.jpeg");
         bgimg=new JLabel(img);
         bgimg.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
     }
