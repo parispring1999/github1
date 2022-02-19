@@ -1,9 +1,11 @@
 package com.window;
 
+import com.event.AccountEvent;
 import com.stytle.Fronts;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 import static java.awt.FlowLayout.CENTER;
 
@@ -18,12 +20,12 @@ public class Register extends JFrame {
     JLabel title;
 
     JLabel name;
-    JTextField nametext;
+    public static JTextField nametext;
     JLabel account;
-    JTextField accounttext;
+    public static JTextField accounttext;
     JLabel password;
-    JPasswordField passwordtext;
-    JButton reg;
+    public static JPasswordField passwordtext;
+    public static JButton reg;
     //构造器
     public Register(){
         init();
@@ -92,5 +94,14 @@ public class Register extends JFrame {
         jpanel_1.add(jpanel_2);
         jpanel_1.add(bgimg);
         this.add(jpanel_1);
+        setAllTag();
+        allEvent();
+    }
+    void allEvent(){
+        AccountEvent lintener_1 = new AccountEvent();
+        reg.addActionListener(lintener_1);
+    }
+    void setAllTag(){
+        reg.setName("reg");
     }
 }
