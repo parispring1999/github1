@@ -8,7 +8,7 @@ import java.util.Vector;
 public class Manage extends JFrame {
 
     final int WIDTH=800;
-    final int HEIGHT=800;
+    final int HEIGHT=550;
     JMenuBar menubar;
     JMenu menu,menu1;
     JMenuItem item,item1;
