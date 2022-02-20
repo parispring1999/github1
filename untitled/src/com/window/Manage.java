@@ -1,15 +1,28 @@
 package com.window;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.util.Vector;
+
 public class Manage extends JFrame {
+
     final int WIDTH=800;
     final int HEIGHT=800;
     JMenuBar menubar;
     JMenu menu,menu1;
     JMenuItem item,item1;
-    JPanel jpanel_1;
+    JPanel jpanel_1,jpanel_2;
     JLabel name,number;
     JTextField nametext,numbertext;
+    JButton add,del;
+    Object columns[]={"姓名","学号"};
+    JTable tableL;
+    JScrollPane jscrollpane;
+    static Vector rwo;
+    static DefaultTableModel model;
+    static TableColumnModel columnModel;
+
     public Manage(){
         init();
         setVisible(true);
@@ -33,27 +46,69 @@ public class Manage extends JFrame {
         menu1=new JMenu("账号");
         item=new JMenuItem("更改账号信息");
         item1=new JMenuItem("注销");
-        menu.add(item);
-        menu1.add(item1);
-        menubar.add(menu);
-        menubar.add(menu1);
         //基本信息处理
         jpanel_1=new javax.swing.JPanel();
         jpanel_1.setLayout(new FlowLayout(FlowLayout.CENTER));
         jpanel_1.setBorder(BorderFactory.createTitledBorder("基本信息处理"));
-        jpanel_1.setBounds(0,100,WIDTH-6,150);
+        jpanel_1.setBounds(50,30,WIDTH-100,110);
         //按钮
         name=new JLabel("姓名");
         nametext=new JTextField(25);
         number=new JLabel("学号");
         numbertext=new JTextField(25);
+        add=new JButton("增加数据");
+        del=new JButton("删除数据");
+        //表格
+        jpanel_2=new javax.swing.JPanel();
+        jpanel_2.setLayout(new FlowLayout(FlowLayout.CENTER));
+        jpanel_2.setBounds(50,160,WIDTH-100,300);
+        jpanel_2.setBorder(BorderFactory.createTitledBorder("学生信息显示"));
+        table();
+        //添加
+        menu.add(item);
+        menu1.add(item1);
+        menubar.add(menu);
+        menubar.add(menu1);
         jpanel_1.add(name);
         jpanel_1.add(nametext);
         jpanel_1.add(number);
         jpanel_1.add(numbertext);
-        //添加
+        jpanel_1.add(add);
+        jpanel_1.add(del);
+        jpanel_2.add(jscrollpane);
+        this.add(jpanel_2);
         this.add(jpanel_1);
         this.add(menubar);
         this.setJMenuBar(menubar);
+    }
+    void table(){
+        tableL=getTable();
+        jscrollpane=new JScrollPane(tableL);
+        jscrollpane.setPreferredSize(new Dimension(WIDTH-190,250));
+        tableL.setPreferredSize(new Dimension(WIDTH-190,1000));
+        jscrollpane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+    }
+    JTable getTable() {
+        if (tableL == null) {
+            tableL = new JTable();
+            int[] columnWidth = {150, 150};
+            model = new DefaultTableModel() {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            model.setColumnIdentifiers(columns);
+            tableL.setModel(model);
+            columnModel=tableL.getColumnModel();
+            tableL.getTableHeader().setReorderingAllowed(false);
+            tableL.getTableHeader().setResizingAllowed(false);
+            int count = columnModel.getColumnCount();
+            for (int i = 0; i < count; i++) {
+                javax.swing.table.TableColumn column = columnModel.getColumn(i);
+                column.setPreferredWidth(columnWidth[i]);
+            }
+            rwo = new Vector(6);
+        }
+        return tableL;
     }
 }
