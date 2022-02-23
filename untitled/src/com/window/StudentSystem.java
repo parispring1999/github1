@@ -4,9 +4,9 @@ import com.mysqld.Mysqld;
 
 public class StudentSystem {
     public static void main(String[] args){
-       // LoginStart loginstart=new LoginStart();
-       // Mysqld a=new Mysqld("root",null);
-       // Register register=new Register();
-        Manage manage=new Manage();
+        Mysqld a=new Mysqld("root",null);
+        LoginStart loginstart=new LoginStart();
+        //Register register=new Register();
+        //Manage manage=new Manage();
     }
 }

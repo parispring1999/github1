@@ -1,8 +1,12 @@
 package com.window;
+import com.event.LoginEvent;
+import com.event.RegEvent;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class Manage extends JFrame {
@@ -22,6 +26,7 @@ public class Manage extends JFrame {
     static Vector rwo;
     static DefaultTableModel model;
     static TableColumnModel columnModel;
+    ActionListener lintener_1;
 
     public Manage(){
         init();
@@ -46,6 +51,7 @@ public class Manage extends JFrame {
         menu1=new JMenu("账号");
         item=new JMenuItem("更改账号信息");
         item1=new JMenuItem("注销");
+        item1.setName("item1");
         //基本信息处理
         jpanel_1=new javax.swing.JPanel();
         jpanel_1.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -80,6 +86,7 @@ public class Manage extends JFrame {
         this.add(jpanel_1);
         this.add(menubar);
         this.setJMenuBar(menubar);
+        allEvent();
     }
     void table(){
         tableL=getTable();
@@ -110,5 +117,9 @@ public class Manage extends JFrame {
             rwo = new Vector(6);
         }
         return tableL;
+    }
+    void allEvent(){
+        lintener_1=new LoginEvent();
+        item1.addActionListener(lintener_1);
     }
 }

@@ -11,7 +11,7 @@ import static java.awt.FlowLayout.CENTER;
 
 public class Register extends JFrame {
     final int WIDTH=420;
-    final int HEIGHT=300;
+    final int HEIGHT=260;
     FlowLayout flowlayout;
     JPanel jpanel_1;
     JPanel jpanel_2;
@@ -59,7 +59,7 @@ public class Register extends JFrame {
         title=new JLabel("账号注册");
         Fronts fronts=new Fronts();
         title.setFont(fronts.title);
-        title.setForeground(Color.orange);
+        title.setForeground(Color.CYAN);
         //盘子2，标题
         jpanel_2=new JPanel();
         jpanel_2.setBounds(0,30,WIDTH,70);
@@ -72,12 +72,16 @@ public class Register extends JFrame {
         jpanel_3.setLayout(flowlayout);
         //第一行数据
         name=new JLabel("姓名");
+
+        name.setForeground(new Color(255,228,181));
         nametext=new JTextField(20);
         //第二行
         account=new JLabel("账号");
+        account.setForeground(new Color(255,228,181));
         accounttext=new JTextField(20);
         //第三行
         password=new JLabel("密码");
+        password.setForeground(new Color(255,228,181));
         passwordtext=new JPasswordField(20);
         //注册
         reg=new JButton("注册");

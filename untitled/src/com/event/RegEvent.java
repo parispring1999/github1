@@ -1,11 +1,13 @@
 package com.event;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import com.window.Register;
 public class RegEvent implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getButton()==MouseEvent.BUTTON1)
         System.out.print("点击");
+        Register register=new Register();
     }
 
     @Override

@@ -1,7 +1,11 @@
 package com.window;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import com.event.AccountEvent;
+import com.event.LoginEvent;
 import com.event.RegEvent;
 import com.stytle.Fronts;
 public class LoginStart extends JFrame {
@@ -10,8 +14,8 @@ public class LoginStart extends JFrame {
     JLabel account;
     JLabel password;
     JLabel title;
-    JTextField accounttext;
-    JPasswordField passwordtext;
+    public static JTextField accounttext;
+    public static JPasswordField passwordtext;
     JButton ok;
     final int WIDTH = 470;
     final int HEIGHT = 290;
@@ -19,6 +23,7 @@ public class LoginStart extends JFrame {
     javax.swing.JPanel jpanel_2;//标题
     javax.swing.JPanel jpanel_3;//账密编辑框密码框
     RegEvent regevent;//监听
+    ActionListener lintener_1;
 
     public LoginStart() {
         init();
@@ -80,6 +85,7 @@ public class LoginStart extends JFrame {
         ok.setFont(fronts.ok);
         ok.setForeground(new Color(8,189,252));
         ok.setForeground(new Color(255,215,0));
+        ok.setName("ok");
         //注册
         register=new JLabel("注册账号");
         register.setBounds(10,210,100,40);
@@ -97,9 +103,14 @@ public class LoginStart extends JFrame {
         jpanel_1.add(jpanel_3);
         jpanel_1.add(bgimg);
         this.add(jpanel_1);
+        //监听事件
+        allEvent();
     }
-    //注册监听
-    void allEvvent(){
-
+    //监听
+    void allEvent(){
+        regevent= new RegEvent();
+        lintener_1=new LoginEvent();
+        register.addMouseListener(regevent);
+        ok.addActionListener(lintener_1);
     }
 }
