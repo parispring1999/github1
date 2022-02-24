@@ -18,13 +18,15 @@ public class Manage extends JFrame {
     JMenuItem item,item1;
     JPanel jpanel_1,jpanel_2;
     JLabel name,number;
-    JTextField nametext,numbertext;
+    public static JTextField nametext,numbertext;
     JButton add,del;
+    //JLabel numbercondition;
+    //JTextField numberconditiontext;
     Object columns[]={"姓名","学号"};
     JTable tableL;
     JScrollPane jscrollpane;
     static Vector rwo;
-    static DefaultTableModel model;
+    public static DefaultTableModel model;
     static TableColumnModel columnModel;
     ActionListener lintener_1;
 
@@ -64,6 +66,11 @@ public class Manage extends JFrame {
         numbertext=new JTextField(25);
         add=new JButton("增加数据");
         del=new JButton("删除数据");
+        add.setName("add");
+        del.setName("del");
+        //umbercondition=new JLabel ("学号条件");
+        //numberconditiontext=new JTextField(25);
+
         //表格
         jpanel_2=new javax.swing.JPanel();
         jpanel_2.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -81,6 +88,8 @@ public class Manage extends JFrame {
         jpanel_1.add(numbertext);
         jpanel_1.add(add);
         jpanel_1.add(del);
+        //jpanel_1.add (numbercondition);
+        //jpanel_1.add(numberconditiontext);
         jpanel_2.add(jscrollpane);
         this.add(jpanel_2);
         this.add(jpanel_1);
@@ -121,5 +130,6 @@ public class Manage extends JFrame {
     void allEvent(){
         lintener_1=new LoginEvent();
         item1.addActionListener(lintener_1);
+        add.addActionListener(lintener_1);
     }
 }

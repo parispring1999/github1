@@ -8,6 +8,7 @@ import com.window.StudentSystem;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class LoginEvent implements ActionListener {
     JButton button;
@@ -24,6 +25,23 @@ public class LoginEvent implements ActionListener {
                     manage = new Manage();
                 }
             }
+            if (button.getName()=="add"){
+                String  name=Manage.nametext.getText();
+                String number=Manage.numbertext.getText();
+                if(name.equals("")){
+                    JOptionPane.showMessageDialog(null,"不能为空","编辑消息",JOptionPane.WARNING_MESSAGE);
+                }
+                else if(number.equals("")){
+                    JOptionPane.showMessageDialog(null,"不能为空","编辑消息",JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    Mysqld.addStudent(name,number);
+                    String data[]=new String[2];
+                    data[0]=name;
+                    data[1]=number;
+                    Manage.model.addRow(data);
+                }
+            }
         } catch (Exception e1) {
         }
         try {
@@ -35,4 +53,4 @@ public class LoginEvent implements ActionListener {
         } catch (Exception e1) {
         }
     }
-}
+    }

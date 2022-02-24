@@ -3,6 +3,8 @@ import java.sql.*;
 import com.mysql.jdbc.Connection;
 import com.window.Register;
 
+import javax.swing.*;
+
 
 public class Mysqld {
     public static Connection con = null;
@@ -41,6 +43,19 @@ public class Mysqld {
             return false;
         } catch (SQLException e) {
             return false;
+        }
+    }
+    public static void addStudent(String name,String number){
+        PreparedStatement preSql;
+        String sqlStr="insert into stu(name,number) values(?,?)";
+        try{
+            preSql=con.prepareStatement(sqlStr);
+            preSql.setString(1,name);
+            preSql.setString(2,number);
+            int ok=preSql.executeUpdate();
+            JOptionPane.showMessageDialog(null,"添加成功","增加数据",JOptionPane.WARNING_MESSAGE);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"已经存在","增加数据",JOptionPane.WARNING_MESSAGE);
         }
     }
 }
