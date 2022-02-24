@@ -58,4 +58,23 @@ public class Mysqld {
             JOptionPane.showMessageDialog(null,"已经存在","增加数据",JOptionPane.WARNING_MESSAGE);
         }
     }
+    public static void delStudent(String number){
+        PreparedStatement preSql;
+        String sqlStr="delete from stu where number=?";
+
+        try {
+            preSql=con.prepareStatement(sqlStr);
+            preSql.setString(1,number);
+            int ok=preSql.executeUpdate();
+            if(ok==0){
+                JOptionPane.showMessageDialog(null,"已经删除",  "删除数据",JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"删除成功","删除数据",JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

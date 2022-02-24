@@ -131,5 +131,6 @@ public class Manage extends JFrame {
         lintener_1=new LoginEvent();
         item1.addActionListener(lintener_1);
         add.addActionListener(lintener_1);
+        del.addActionListener(lintener_1);
     }
 }

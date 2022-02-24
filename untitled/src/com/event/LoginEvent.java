@@ -42,6 +42,14 @@ public class LoginEvent implements ActionListener {
                     Manage.model.addRow(data);
                 }
             }
+            if(button.getName()=="del"){
+                String number1=Manage.numbertext.getText();
+                if(number1.equals("")){
+                    JOptionPane.showMessageDialog(null,"不能为空","编辑消息",JOptionPane.WARNING_MESSAGE);
+                }else{
+                    Mysqld.delStudent(number1);
+                }
+            }
         } catch (Exception e1) {
         }
         try {
